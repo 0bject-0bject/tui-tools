@@ -3,19 +3,25 @@
 // Licensed under MIT
 //
 
+#[cfg(windows)]
 static mut ANSI_SUPPORT_ENABLED: bool = false;
 
 macro_rules! color_fn {
+    
     ($name:ident, $code:expr) => {
         fn $name(&self) -> String {
+            #[cfg(windows)]
             enable_ansi_if();
+
             return format!("\x1b[{}m{}\x1b[0m", $code, self);
         }
     };
 
     ($name:ident, $code:expr, $bg_code:expr) => {
         fn $name(&self) -> String {
+            #[cfg(windows)]
             enable_ansi_if();
+
             return format!("\x1b[{};{}m{}\x1b[0m", $code, $bg_code, self);
         }
     };

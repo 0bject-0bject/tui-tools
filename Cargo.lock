@@ -13,7 +13,7 @@ dependencies = [
 
 [[package]]
 name = "tui-tools"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "enable-ansi-support",
 ]

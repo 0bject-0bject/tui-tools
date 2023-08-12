@@ -3,7 +3,7 @@
 // Licensed under MIT
 //
 
-
+use std::io::{self, Write};
 /// Colorize text in a terminal, automatically detects if the terminal supports colors
 /// 
 /// example:
@@ -16,8 +16,7 @@
 pub mod colors;
 pub use colors::Colors;
 
-mod inputs;
-pub use inputs::Inputs;
+
 // How do I get keyboard input without the user pressing the Enter key? - https://stackoverflow.com/a/73765863
 extern {
     fn _getch() -> core::ffi::c_char;
